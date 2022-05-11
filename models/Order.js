@@ -10,9 +10,17 @@ class Order extends Model {}
 Order.init(
   {
     // define columns
-    // This id is not primary key anymore!
-    // We need to enter it every time we got an order in table
+    // id is a needed column (the package by default need a key so we add it)
     id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    // This order_id is not primary key anymore!
+    // We need to enter it every time we got an order in table
+
+    order_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

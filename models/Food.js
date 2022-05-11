@@ -16,7 +16,7 @@ Food.init(
     food_name: {
       type: DataTypes.STRING,
     },
-    food_price: {
+    price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
