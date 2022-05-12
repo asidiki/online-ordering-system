@@ -24,11 +24,11 @@ Food.hasMany(Order, {
 
 
 Order.belongsTo(Driver, {
-  foreignKey: 'user_id'
+  foreignKey: 'driver_id'
 });
 
 Driver.hasMany(Order, {
-  foreignKey: 'user_id'
+  foreignKey: 'driver_id'
 });
 
 
