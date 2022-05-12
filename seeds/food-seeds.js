@@ -2,37 +2,77 @@ const { Food } = require('../models');
 
 const foodData = [
   {
-    food_name: 'Fies',
-    price: 14.99,
-  },
-  {
-    food_name: 'Burger',
-    price: 24.99,
-  },
-  {
-    food_name: 'Pineapple',
-    price: 34.99,
-  },
-  {
-    food_name: 'Bottled Water',
-    price: 4.99,
-  },
-  {
-    food_name: 'Coke',
+    food_name: 'Cheesy Breadsticks',
     price: 5.99,
   },
   {
-    food_name: 'Pineapple Juice',
-    price: 10.99,
+    food_name: 'Bone-In Chicken Wings',
+    price: 11.99,
   },
   {
-    food_name: 'Ice Cream',
-    price: 18.99,
+    food_name: 'Boneless Chicken Wings',
+    price: 9.99,
   },
   {
-    food_name: 'Bubble Tea',
-    price: 20.99,
+    food_name: 'Garden Salad',
+    price: 7.99,
   },
+  {
+    food_name: 'Caesar Salad',
+    price: 7.99,
+  },
+  {
+    food_name: 'Antipasto Salad',
+    price: 9.99,
+  },
+  {
+    food_name: 'Greek Salad',
+    price: 9.99,
+  },
+  {
+    food_name: 'Cheese',
+    price: 11.99,
+  },
+  {
+    food_name: 'Pepperoni',
+    price: 13.99,
+  },
+  {
+    food_name: 'Meat Lovers',
+    price: 15.99,
+  },
+  {
+    food_name: 'Veggie',
+    price: 15.99,
+  },
+  {
+    food_name: 'Supreme',
+    price: 15.99,
+  },
+  {
+    food_name: 'Chocolate Lava Cake',
+    price: 5.99,
+  },
+  {
+    food_name: 'Cinnamon Sugar Breadsticks',
+    price: 5.99,
+  },
+  {
+    food_name: 'Coke',
+    price: 2.99,
+  },
+  {
+    food_name: 'Sprite',
+    price: 2.99,
+  },
+  {
+    food_name: 'Orange Fanta',
+    price: 2.99,
+  },
+  {
+    food_name: 'Dr. Pepper',
+    price: 2.99,
+  }
 ];
 
 const seedFoods = () => Food.bulkCreate(foodData);
