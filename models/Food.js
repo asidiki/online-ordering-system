@@ -22,6 +22,10 @@ Food.init(
       validate: {
         isDecimal: true
       }
+    },
+    image: {
+      type:DataTypes.STRING,
+      allowNull: false,
     }
   },
   {
