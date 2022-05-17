@@ -14,16 +14,16 @@
 
 <form class="signup-form">
     <div>
-        <label for="first_name_signup">First-Name:</label>
-        <input type="text" id="first_name_signup" />
+        <label for="firstname-signup">First-Name:</label>
+        <input type="text" id="firstname-signup" />
     </div>
     <div>
         <label for="last_name_signup">Last-Name:</label>
-        <input type="text" id="last_name_signup" />
+        <input type="text" id="lastname-signup" />
     </div>
     <div>
         <label for="address_signup">Address:</label>
-        <input type="text" id="address_signup" />
+        <input type="text" id="address-signup" />
     </div>
     <div>
         <label for="username-signup">username:</label>
@@ -43,5 +43,75 @@
 </form>
 
 <script>
-    {{loginJS}}
+
+async function signupFormHandler(event) {
+    event.preventDefault();
+    console.log(event);
+    const username = document.querySelector('#username-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
+    const first_name = document.querySelector('#firstname-signup').value.trim();
+    const last_name = document.querySelector('#lastname-signup').value.trim();
+    const address = document.querySelector('#address-signup').value.trim();
+
+    if (first_name && last_name && address && username && email && password ) {
+        const response = await fetch('/api/users', {
+            method: 'post',
+            body: JSON.stringify({
+                username,
+                email,
+                password,
+                first_name,
+                last_name,
+                address
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            console.log(response.statusText);
+        }
+    }else {
+        alert('fill all fields')
+    }
+
+      // check the response status
+       // if (response.ok) {
+           // console.log('success');
+       // } else {
+          //  alert(response.statusText);
+       // }
+}
+
+function loginFormHandler(event) {
+    event.preventDefault();
+    console.log('click');
+
+    const email = document.querySelector('#email-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
+
+    if (email && password) {
+        const response = fetch('/api/users/login', {
+            method: 'post',
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
+        }
+    }
+}
+
+//document.querySelector('login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+
+
 </script>
