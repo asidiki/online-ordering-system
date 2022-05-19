@@ -3,7 +3,7 @@ const User = require('./User');
 const Food = require('./Food');
 const Order = require('./Order');
 const Driver = require('./Driver');
-
+const FoodCategory = require('./food-category')
 
 Order.belongsTo(User, {
   foreignKey: 'user_id'
@@ -31,7 +31,13 @@ Driver.hasMany(Order, {
   foreignKey: 'driver_id'
 });
 
+Food.belongsTo(FoodCategory, {
+  foreignKey: 'food_id'
+})
 
+FoodCategory.hasMany(Food, {
+  foreignKey: 'foodCategory_id'
+})
 
 User.belongsToMany(Food, {
   through: Order,
@@ -68,4 +74,5 @@ module.exports = {
   Food,
   Order,
   Driver,
+  FoodCategory
 };
