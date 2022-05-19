@@ -3,9 +3,36 @@ const { User } = require('../../models');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const req = require('express/lib/request');
-const res = require('express/lib/response');
 const localStrategy = require('passport-local').Strategy;
+
+
+
+passport.use(new localStrategy(function (email, password, done){
+    User.findOne({ username: email }, function(err, user){
+        if (err) return done(err);
+        if (!user) {
+            return done(null, false, { message: 'Incorrect Username' });
+        }
+        bcrypt.compare(password, user.password, function(err, res){
+            if (err) return done(err);
+            if (res === false) return done(null, false, { message: 'Incorrect password' });
+
+            return done(err, user);
+        })
+    })
+}))
+
+function success(req, res) {
+    const session = require('express-session')
+    req.session.save(() => {
+        console.log(dbUserData);
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+    
+        res.json(dbUserData);
+    });
+}
 
 
 passport.serializeUser(function (user_id, done){
@@ -17,30 +44,6 @@ passport.deserializeUser(function (user_id, done){
         done(err, user_id);
     });
 });
-
-
-passport.use(new localStrategy(function (email, password, done){
-    User.findOne({ username: email }, function(err, user){
-        if (err) return done(err);
-        if (!user) {
-            return done(null, false, { message: 'Incorrect Username' });
-        }
-        bcrypt.compare(password, user.password, function(err, req, res){
-            if (err) return done(err);
-            if (res === false) return done(null, false, { message: 'Incorrect password' });
-
-            return done(err, req.sesion.save((user)=>{
-                console.log(req.user.id)
-                req.session.user_id = req.user.id;
-                req.session.username = req.user.username;
-                req.session.loggedIn = true;
-                
-                res.json(user);
-            }));
-        });
-    })
-}))
-
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -106,7 +109,7 @@ router.post('/', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/login'
 }));
 
 router.post('/logout', function (req, res){
