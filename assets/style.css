@@ -36,10 +36,10 @@ header h1 {
 }
 section {
     padding: 60px;
-    background-image: url("../assets/images/pizza.png");
+    background-image: url("./images/pizza.png");
     height: 300px;
 
-  }
+}
 h4{
     color: #54743d;
 }
