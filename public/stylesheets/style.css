@@ -1,13 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 20px 35px;
+    background-color: #163B16
+
+    ;
+
+}
+
 header nav {
     float: right;
     margin: 7px 0;
-    }
+}
+
 header nav ul li {
-        display: inline;
-    }
-      
+    display: inline;
+}
+
 header nav ul li a {
-        margin: 0 30px;
-        font-weight: lighter;
-        font-size: 22px;
-    }
+    margin: 0 30px;
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: #A3320D;
+    margin: 0;
+    display: inline;
+}
+section {
+    padding: 60px;
+    background-image: url("../assets/images/pizza.png");
+    height: 300px;
+
+  }
+h4{
+    color: #54743d;
+}
+
+body {
+    background-color: #d5b483;
+    font-size: 18px;
+}
+
+.Pizzas {
+    color: #54743d
+}
+
+.Salads {
+    color: #54743d;
+
+}
+
+.Appetizers {
+    color: #54743d;
+
+}
+
+
+.Desserts {
+    color: #54743d;
+}
+
+.Drinks {
+    color: #54743d
+}
+.menu{
+
+}
+.cart {
+    text-align: center;
+    border: 3px; color: #A3320D; border-style: solid;
+}
+
+button {
+    color: #d5b483;
+    background-color: #54743d;
+}
+
+footer {
+    background: #163B16;
+    width: 100%;
+    padding: 40px 35px;
+}
+
+footer h2 {
+    display: inline;
+    color: #A3320D;
+    font-size: 30px;
+    margin: 0;
+}
+
+footer div {
+    float: right;
+    line-height: 1.5;
+    text-align: right;
+}
+
+footer a {
+    color: #A3320D;
+}

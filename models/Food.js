@@ -28,9 +28,12 @@ Food.init(
       type: DataTypes.INTEGER,
       references: 
       { model: FoodCategory,
-      key: 'id'}
+      key: 'id'},
+      },
+    image: {
+      type:DataTypes.STRING,
+      allowNull: false,
     }
-
   },
   {
     sequelize,
