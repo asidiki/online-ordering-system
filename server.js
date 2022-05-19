@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 
-const css = fs.readFileSync('./assets/style.css', 'utf-8');
+const css = fs.readFileSync('./public/style.css', 'utf-8');
 // const loginJS = fs.readFileSync('./public/javascript/login.js', 'utf-8')
 // const logoutJS = fs.readFileSync('./public/javascript/logout.js', 'utf-8')
 
