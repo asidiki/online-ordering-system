@@ -3,16 +3,18 @@ const { User } = require('../../models');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
+const req = require('express/lib/request');
+const res = require('express/lib/response');
 const localStrategy = require('passport-local').Strategy;
 
 
-passport.serializeUser(function (user, done){
-    done(null, user.id)
+passport.serializeUser(function (user_id, done){
+    done(null, user_id)
 });
 
-passport.deserializeUser(function (id, done){
-    User.findByPk(id, function(err, user){
-        done(err, user);
+passport.deserializeUser(function (user_id, done){
+    User.findByPk(user_id, function(err, user_id){
+        done(err, user_id);
     });
 });
 
@@ -23,11 +25,18 @@ passport.use(new localStrategy(function (email, password, done){
         if (!user) {
             return done(null, false, { message: 'Incorrect Username' });
         }
-        bcrypt.compare(password, user.password, function(err, res){
+        bcrypt.compare(password, user.password, function(err, req, res){
             if (err) return done(err);
             if (res === false) return done(null, false, { message: 'Incorrect password' });
 
-            return done(null,user);
+            return done(err, req.sesion.save((user)=>{
+                console.log(req.user.id)
+                req.session.user_id = req.user.id;
+                req.session.username = req.user.username;
+                req.session.loggedIn = true;
+                
+                res.json(user);
+            }));
         });
     })
 }))
@@ -97,7 +106,7 @@ router.post('/', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login'
+    failureRedirect: '/login',
 }));
 
 router.post('/logout', function (req, res){
