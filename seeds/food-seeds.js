@@ -4,7 +4,7 @@ const foodData = [
   {
     food_name: 'Cheesy Breadsticks',
     price: 5.99,
-    image:'https://drive.google.com/file/d/1OdmUotlRmpvZ9OEwpk5RSB-HXz0Tw7GS/view'
+    image:'https://sallysbakingaddiction.com/wp-content/uploads/2019/01/homemade-cheesy-breadsticks-2.jpg'
   },
   {
     food_name: 'Bone-In Chicken Wings',

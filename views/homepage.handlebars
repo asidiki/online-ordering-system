@@ -50,7 +50,7 @@
         <div class="menu col-9">
             <div class="Appetizers">
                 <div class="col-10 pb-5 text-center">
-                    <h4 class="text-center quicksand-font text-uppercase">Appetizers</h4>
+                    {{!-- <h4 class="text-center quicksand-font text-uppercase">Appetizers</h4>
                     <p class="text-uppercase">Cheesy Breadsticks $6
                         <select name="Quantities" id="Quantities">
                             <option value="1">1</option>
@@ -59,7 +59,12 @@
                             <option value="4">4</option>
                         </select>
                         <button type="button">Add To Cart</button>
-                    </p>
+                    </p> --}}
+                    <div class="card1">
+                        <div class="food-name"></div>
+                        <div class="food-pic"></div>
+                        <div class="food-price"></div>
+                    </div>
                     <p class="text-uppercase">Bone-In Wings $12
                         <select name="Quantities" id="Quantities">
                             <option value="1">1</option>
@@ -265,6 +270,69 @@
                 }
             }
             document.querySelector('#logout').addEventListener('click', logout);
+
+
+
+
+            var foodNameEl = document.querySelector(".food-name");
+            var foodImageEl = document.querySelector(".food-pic");
+            var foodpriceEl = document.querySelector(".food-price");
+
+            var foodCard = function() {
+                // format the github api url
+                var apiUrl = "/api/food";
+                
+                // make a request to the url
+                fetch(apiUrl)
+                .then(function(response) {
+                // request was successful
+                    if (response.ok) {
+                        response.json()
+                        .then(function(data) {
+                            console.log(data);
+                            apiData(data);
+                        });
+                    } else {
+                        alert('Error'); 
+                    }
+                })
+                .catch(function(error) {
+                    // Notice this `.catch()` getting chained onto the end of the `.then()` method
+                    if (error) {
+                    alert("Unable to connect to api");
+                    }
+                });
+            };
+
+            foodCard();
+
+
+
+
+
+            var apiData = function (data) {
+                var storageData = JSON.stringify(data[0]);
+                sessionStorage.setItem("dinnerData", storageData);
+
+                foodNameEl.innerHTML = ""
+                foodImageEl.innerHTML = ""
+                foodpriceEl.innerHTML = ""
+
+                var foodHeading = document.createElement('a');
+                foodHeading.setAttribute("class", "font-weight-bold text-uppercase");
+                foodHeading.textContent = data[0].food_name;
+                foodNameEl.appendChild(foodHeading);
+                
+                var foodImg = document.createElement('img')
+                foodImg.src = data[0].image
+                foodImg.style.width = "200px";
+                foodImg.style.height = "200px";
+                foodImageEl.appendChild(foodImg);
+
+                var foodPrice = document.createElement('p');
+                foodPrice.textContent = data[0].price;
+                foodpriceEl.appendChild(foodPrice);
+            };
         </script>
 </body>
 
