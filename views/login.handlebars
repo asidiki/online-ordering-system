@@ -1,19 +1,3 @@
-<form class="login-form">
-    <div>
-        <label for="email-login">email:</label>
-        <input type="text" id="email-login" />
-    </div>
-    <div>
-        <label for="password-login">password:</label>
-        <input type="password" id="password-login" />
-    </div>
-    <div>
-        <button type="submit">login</button>
-    </div>
-</form> <br>
-<% if (messages.error) { %>
-    <%= messages.error %>
-<% } %>
 
 <form class="signup-form">
     <div>
@@ -44,70 +28,19 @@
         <button type="submit">signup</button>
     </div>
 </form>
-
-<script>
-
-async function signupFormHandler(event) {
-    event.preventDefault();
-    console.log(event);
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-    const first_name = document.querySelector('#firstname-signup').value.trim();
-    const last_name = document.querySelector('#lastname-signup').value.trim();
-    const address = document.querySelector('#address-signup').value.trim();
-
-    if (first_name && last_name && address && username && email && password ) {
-        const response = await fetch('/api/users', {
-            method: 'post',
-            body: JSON.stringify({
-                username,
-                email,
-                password,
-                first_name,
-                last_name,
-                address
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            console.log(response.statusText);
-        }
-    }else {
-        alert('fill all fields')
-    }
-}
-
-async function loginFormHandler(event) {
-    event.preventDefault();
-    console.log('click');
-
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-
-    if (email && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'post',
-            body: JSON.stringify({
-                email,
-                password
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert(response.statusText);
-        }
-    }
-}
-
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+<form class="login-form">
+    <div>
+        <label for="email-login">email:</label>
+        <input type="text" id="email-login" />
+    </div>
+    <div>
+        <label for="password-login">password:</label>
+        <input type="password" id="password-login" />
+    </div>
+    <div>
+        <button type="submit">login</button>
+    </div>
+</form>
 
 
-</script>
+<script src="/js/login.js"></script>
