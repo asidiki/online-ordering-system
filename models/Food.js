@@ -1,7 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
-const FoodCategory = require('./food-category.js');
 
 class Food extends Model {}
 
@@ -24,12 +22,11 @@ Food.init(
         isDecimal: true
       }
     },
-    category_id: {
-      type: DataTypes.INTEGER,
-      references: 
-      { model: FoodCategory,
-      key: 'id'},
-      },
+    food_category : {
+      type: DataTypes.STRING,
+      allowNull: false,
+      default: null
+    },
     image: {
       type:DataTypes.STRING,
       allowNull: false,
