@@ -47,6 +47,7 @@ h4 {
 body {
     background-color: #d5b483;
     font-size: 18px;
+    padding-top: 80px;
 }
 
 .Pizzas {
@@ -108,3 +109,16 @@ footer div {
 footer a {
     color: #A3320D;
 }
+
+  
+  .show-cart li {
+    display: flex;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card-img-top {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+  }
