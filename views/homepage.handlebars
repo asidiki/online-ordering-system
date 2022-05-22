@@ -32,129 +32,46 @@
 
 <div class='row'>
   <h2>Appetizers</h2>
-  {{#each appetizers as |appetizer|}}
-  <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img
-          class="card-img-top"
-          src= {{> image appetizer}}
-          alt="Card image cap"
-        />
-        <div class="card-block">
-          <h4 class="card-title">{{> food_name appetizer}}</h4>
-          <p class="card-text">Price: {{> price appetizer}}</p>
-          <a
-            href="#"
-            data-name= {{> food_name appetizer }}
-            data-price= {{> price appetizer}}
-            class="add-to-cart btn btn-primary"
-          >Add to cart</a>
-        </div>
-      </div>
-    </div>
+  {{#each items as |item|}}
+    {{#ifCategory item "Appetizer"}}
+    {{>item-info item}}
+    {{/ifCategory}}
+  {{/each}}
+</div>
+
+<div class='row'>
+  <h2>Salads</h2>
+  {{#each items as |item|}}
+    {{#ifCategory item "Salad"}}
+    {{>item-info item}}
+    {{/ifCategory}}
+  {{/each}}
+</div>
+
+<div class='row'>
+  <h2>NY Style Pizzas</h2>
+  {{#each items as |item|}}
+    {{#ifCategory item "Pizza"}}
+    {{>item-info item}}
+    {{/ifCategory}}
+  {{/each}}
+</div>
+
+<div class='row'>
+  <h2>Desserts</h2>
+  {{#each items as |item|}}
+    {{#ifCategory item "Dessert"}}
+    {{>item-info item}}
+    {{/ifCategory}}
   {{/each}}
 </div>
 
 
 <div class='row'>
-  <h2>Salads</h2>
-  {{#each salads as |salad|}}
-  <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img
-          class="card-img-top"
-          src= {{> image salad}}
-          alt="Card image cap"
-        />
-        <div class="card-block">
-          <h4 class="card-title">{{> food_name salad}}</h4>
-          <p class="card-text">Price: {{> price salad}}</p>
-          <a
-            href="#"
-            data-name= {{> food_name salad }}
-            data-price= {{> price salad}}
-            class="add-to-cart btn btn-primary"
-          >Add to cart</a>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-</div>
-
-
-
-<div class='row'>
-  <h2>NY Style Pizzas</h2>
-  {{#each pizzas as |pizza|}}
-  <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img
-          class="card-img-top"
-          src= {{> image pizza}}
-          alt="Card image cap"
-        />
-        <div class="card-block">
-          <h4 class="card-title">{{> food_name pizza}}</h4>
-          <p class="card-text">Price: {{> price pizza}}</p>
-          <a
-            href="#"
-            data-name= {{> food_name pizza }}
-            data-price= {{> price pizza}}
-            class="add-to-cart btn btn-primary"
-          >Add to cart</a>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-</div>
-
-
-<div class='row'>
-  <h2>Desserts</h2>
-  {{#each desserts as |dessert|}}
-  <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img
-          class="card-img-top"
-          src= {{> image dessert}}
-          alt="Card image cap"
-        />
-        <div class="card-block">
-          <h4 class="card-title">{{> food_name dessert}}</h4>
-          <p class="card-text">Price: {{> price dessert}}</p>
-          <a
-            href="#"
-            data-name= {{> food_name dessert }}
-            data-price= {{> price dessert}}
-            class="add-to-cart btn btn-primary"
-          >Add to cart</a>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-</div>
-
-<div class='row'>
   <h2>Beverages</h2>
-  {{#each beverages as |beverage|}}
-  <div class="col">
-      <div class="card" style="width: 20rem;">
-        <img
-          class="card-img-top"
-          src= {{> image beverage}}
-          alt="Card image cap"
-        />
-        <div class="card-block">
-          <h4 class="card-title">{{> food_name beverage}}</h4>
-          <p class="card-text">Price: {{> price beverage}}</p>
-          <a
-            href="#"
-            data-name= {{> food_name beverage }}
-            data-price= {{> price beverage}}
-            class="add-to-cart btn btn-primary"
-          >Add to cart</a>
-        </div>
-      </div>
-    </div>
-    {{/each}}
+  {{#each items as |item|}}
+    {{#ifCategory item "Drink"}}
+    {{>item-info item}}
+    {{/ifCategory}}
+  {{/each}}
 </div>

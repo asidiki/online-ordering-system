@@ -13,13 +13,12 @@ router.get('/', (req, res) => {
         ]
     })
     .then(dbFoodData => {
-        console.log(dbFoodData)
-        const salads = dbFoodData.map(food => food.get({ plain: true})).filter(food => food.food_category = 'Salad')
-        const appetizers = dbFoodData.map(food => food.get({ plain: true})).filter(food => food.food_category = 'Appetizer')
-        const pizzas = dbFoodData.map(food => food.get({ plain: true})).filter(food => food.food_category = 'Pizza')
-        const desserts = dbFoodData.map(food => food.get({ plain: true})).filter(food => food.food_category = 'Dessert')
-        const beverages = dbFoodData.map(food => food.get({ plain: true})).filter(food => food.food_category = 'Drink')
-        res.render('homepage', {salads, appetizers, pizzas, desserts, beverages});
+        
+        const items = dbFoodData.map(food => food.get({ plain: true}))
+        console.log(items)
+        const apps = items.filter(item => item.food_category === "Appetizer")
+        console.log(apps)
+        res.render('homepage', {items});
     })
     .catch(err => {
         console.log(err);
