@@ -6,9 +6,7 @@
 
 header {
     padding: 20px 35px;
-    background-color: #163B16
-
-    ;
+    background-color: #163B16;
 
 }
 
@@ -34,13 +32,15 @@ header h1 {
     margin: 0;
     display: inline;
 }
+
 section {
     padding: 60px;
-    background-image: url("../assets/images/pizza.png");
+    background-image: url("/pizza.png");
     height: 300px;
 
-  }
-h4{
+}
+
+h4 {
     color: #54743d;
 }
 
@@ -71,12 +71,14 @@ body {
 .Drinks {
     color: #54743d
 }
-.menu{
 
-}
+.menu {}
+
 .cart {
     text-align: center;
-    border: 3px; color: #A3320D; border-style: solid;
+    border: 3px;
+    color: #A3320D;
+    border-style: solid;
 }
 
 button {
