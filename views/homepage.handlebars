@@ -1,42 +1,31 @@
-<!--Navigation-->
 <header>
-    {{! <h1>
-        <a href="/">Pizza Palace</a>
-    </h1> }}
-    <nav>
-        <!-- Unordered list element -->
-        <ul>
-            <!-- List item element-->
-            <li>
-                <!-- Anchor element -->
-                <a href="#Appetizers">Appetizers</a>
-            </li>
-            <li>
-                <a href="#Salads">Salads</a>
-            </li>
-            <li>
-                <a href="#NY-Style-Pizzas">NY Style Pizzas</a>
-            </li>
-            <li>
-                <a href="#Desserts">Desserts</a>
-            </li>
-            <li>
-                <a href="#Drinks">Drinks</a>
-            </li>
-            <li>
-                <a href="/login">Login</a>
-            </li>
-            <li>
-                <button id="logout" class="btn-no-style">logout</button>
-            </li>
-    </nav>
-</header>
+            <button class="Login" class="btn-no-style">Login</button>
+            <button class="Logout" class="btn-no-style">Logout</button>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Pizza Palace</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="#Appetizers">Appetizers</a>
+                        <a class="nav-item nav-link" href="#Salads">Salads</a>
+                        <a class="nav-item nav-link" href="#NY-Style-Pizzas">NY Style Pizzas</a>
+                        <a class="nav-item nav-link" href="#Drinks">Drinks</a>
+                    </div>
+                </div>
+            
+            </nav>
+            <script src="/js/logout.js">
 
+            </script>
+</header>
 
 
 <body>
     <div class='container' style="padding: 100px">
-        <h2>Appetizers</h2>
+        <h2 class="Appetizers">Appetizers</h2>
         <div class="row">
             {{#each items as |item|}}
             {{#ifCategory item "Appetizer"}}
@@ -47,7 +36,7 @@
     </div>
 
     <div class='container' style="padding: 100px">
-        <h2>Salads</h2>
+        <h2 class="Salads">Salads</h2>
         <div class="row">
             {{#each items as |item|}}
             {{#ifCategory item "Salad"}}
@@ -59,7 +48,7 @@
 
     <div class='container' style="padding: 100px">
         <div class="row">
-            <h2>NY Style Pizzas</h2>
+            <h2 class="Appetizers">NY Style Pizzas</h2>
             {{#each items as |item|}}
             {{#ifCategory item "Pizza"}}
             {{>item-info item}}
@@ -69,7 +58,7 @@
     </div>
 
     <div class='container' style="padding: 100px">
-        <h2>Desserts</h2>
+        <h2 class="Appetizers">Desserts</h2>
         <div class="row">
             {{#each items as |item|}}
             {{#ifCategory item "Dessert"}}
@@ -81,7 +70,7 @@
 
 
     <div class='container' style="padding: 100px">
-        <h2>Beverages</h2>
+        <h2 class="Appetizers">Beverages</h2>
         <div class="row">
             {{#each items as |item|}}
             {{#ifCategory item "Drink"}}
@@ -92,6 +81,6 @@
     </div>
 
 
-    <script src="/js/logout.js"></script>
+
 
 </body>
