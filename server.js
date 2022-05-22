@@ -7,9 +7,11 @@ const flash         = require('express-flash');
 const passport      = require('passport');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const helpers = require('./utils/helpers')
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 
 const sess = {
@@ -24,9 +26,6 @@ const sess = {
 
 app.use(session(sess));
 
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(passport.authenticate("session"));
 
 const hbs = exphbs.create({});
 
