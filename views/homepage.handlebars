@@ -26,56 +26,72 @@
             <li>
                 <a href="/login">Login</a>
             </li>
-        </ul>
+            <li>
+                <button id="logout" class="btn-no-style">logout</button>
+            </li>
     </nav>
 </header>
 
 
-<div class='row'>
-    <h2>Appetizers</h2>
-    {{#each items as |item|}}
-    {{#ifCategory item "Appetizer"}}
-    {{>item-info item}}
-    {{/ifCategory}}
-    {{/each}}
-</div>
 
-<div class='row'>
-    <h2>Salads</h2>
-    {{#each items as |item|}}
-        {{#ifCategory item "Salad"}}
+<body>
+    <div class='container' style="padding: 100px">
+        <h2>Appetizers</h2>
+        <div class="row">
+            {{#each items as |item|}}
+            {{#ifCategory item "Appetizer"}}
             {{>item-info item}}
-        {{/ifCategory}}
-    {{/each}}
-</div>
+            {{/ifCategory}}
+            {{/each}}
+        </div>
+    </div>
 
-<div class='row'>
-    <h2>NY Style Pizzas</h2>
-    {{#each items as |item|}}
-        {{#ifCategory item "Pizza"}}
+    <div class='container' style="padding: 100px">
+        <h2>Salads</h2>
+        <div class="row">
+            {{#each items as |item|}}
+            {{#ifCategory item "Salad"}}
             {{>item-info item}}
-        {{/ifCategory}}
-    {{/each}}
-</div>
+            {{/ifCategory}}
+            {{/each}}
+        </div>
+    </div>
 
-<div class='row'>
-    <h2>Desserts</h2>
-    {{#each items as |item|}}
-        {{#ifCategory item "Dessert"}}
+    <div class='container' style="padding: 100px">
+        <div class="row">
+            <h2>NY Style Pizzas</h2>
+            {{#each items as |item|}}
+            {{#ifCategory item "Pizza"}}
             {{>item-info item}}
-        {{/ifCategory}}
-    {{/each}}
-</div>
+            {{/ifCategory}}
+            {{/each}}
+        </div>
+    </div>
 
-
-<div class='row'>
-    <h2>Beverages</h2>
-    {{#each items as |item|}}
-        {{#ifCategory item "Drink"}}
+    <div class='container' style="padding: 100px">
+        <h2>Desserts</h2>
+        <div class="row">
+            {{#each items as |item|}}
+            {{#ifCategory item "Dessert"}}
             {{>item-info item}}
-        {{/ifCategory}}
-    {{/each}}
-</div>
+            {{/ifCategory}}
+            {{/each}}
+        </div>
+    </div>
 
 
-<script src="/js/logout.js"></script>
+    <div class='container' style="padding: 100px">
+        <h2>Beverages</h2>
+        <div class="row">
+            {{#each items as |item|}}
+            {{#ifCategory item "Drink"}}
+            {{>item-info item}}
+            {{/ifCategory}}
+            {{/each}}
+        </div>
+    </div>
+
+
+    <script src="/js/logout.js"></script>
+
+</body>
