@@ -45,11 +45,11 @@ router.post('/', (req, res) => {
         username: req.body.username
     }) .then(dbUserData => {
             req.session.save(() => {
-                console.log(dbUserData);
+             
                 req.session.user_id = dbUserData.id;
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
-            
+
                 res.json(dbUserData);
             });
     })
@@ -87,6 +87,26 @@ router.post('/login', (req, res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     });
+});
+
+
+router.get('/:email', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.params.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        res.json(dbUserData);
+    })
+        .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+        });
 });
 
 

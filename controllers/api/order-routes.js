@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
     Order.create({
         order_id: req.body.order_id,
         user_id: req.body.user_id,
-        food_id: req.body.food_id,
+        order_info: req.body.order_info,
         driver_id: req.body.driver_id
     })
         .then(dbOrderData => res.json(dbOrderData))
