@@ -15,9 +15,7 @@ router.get('/', (req, res) => {
     .then(dbFoodData => {
         
         const items = dbFoodData.map(food => food.get({ plain: true}))
-        console.log(items)
-        const apps = items.filter(item => item.food_category === "Appetizer")
-        console.log(apps)
+        
         res.render('homepage', {items});
     })
     .catch(err => {

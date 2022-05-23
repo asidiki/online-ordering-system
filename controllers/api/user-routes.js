@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-
+const session = require('express-session');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -33,9 +33,8 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// POST /api/users
 router.post('/', (req, res) => {
-
+    // expects {first_name: 'Lernantino', last_name: 'Smith', email: 'lernantino@gmail.com', address: 'California'}
     User.create({
         first_name: req.body.first_name,
         last_name: req.body.last_name,
@@ -43,23 +42,28 @@ router.post('/', (req, res) => {
         address: req.body.address,
         password: req.body.password,
         username: req.body.username
-    }).then(dbUserData => {
-        req.session.save(() => {
-            console.log(dbUserData);
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json(dbUserData);
-        });
-    }).catch(err => {
+    }) .then(dbUserData => {
+            req.session.save(() => {
+                console.log(dbUserData);
+                req.session.user_id = dbUserData.id;
+                req.session.username = dbUserData.username;
+                req.session.loggedIn = true;
+            
+                res.json(dbUserData);
+            });
+    })
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
+});
 
-})
 
 
+
+
+
+// POST /api/users
 router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     User.findOne({
@@ -89,17 +93,27 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(204).end();
-        });
-    }
-    else {
-        res.status(404).end();
-    }
-});
 
+
+
+router.get('/:email', (req, res) => {
+    User.findOne({
+        where: {
+            email: req.params.email
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        res.json(dbUserData);
+    })
+        .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+        });
+});
 
 router.post('/logout', function (req, res){
     if (req.session.loggedIn) {

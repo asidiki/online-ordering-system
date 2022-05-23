@@ -5,5 +5,8 @@ module.exports = {
         if (item.food_category === category) {
             return options.fn(this)
         } 
+    },
+    encodeValue: (item) => {
+        encodeURIComponent(item);
     }
 }

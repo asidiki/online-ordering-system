@@ -32,7 +32,6 @@ Driver.hasMany(Order, {
 });
 
 
-
 User.belongsToMany(Food, {
   through: Order,
   foreignKey: 'user_id'
@@ -67,5 +66,5 @@ module.exports = {
   User,
   Food,
   Order,
-  Driver,
+  Driver
 };
