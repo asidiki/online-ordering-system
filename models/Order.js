@@ -17,13 +17,6 @@ Order.init(
       primaryKey: true,
       autoIncrement: true
     },
-    // This order_id is not primary key anymore!
-    // We need to enter it every time we got an order in table
-
-    order_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -31,12 +24,9 @@ Order.init(
         key: 'id'
       }
     },
-    food_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'food',
-          key: 'id'
-      }
+    order_info: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
     driver_id: {
     type: DataTypes.INTEGER,

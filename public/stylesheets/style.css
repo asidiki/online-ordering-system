@@ -6,18 +6,18 @@
 
 header {
     padding: 20px 35px;
-    background-color: #163B16;
+    background-color: green;
 
 }
 
-header nav {
-    float: right;
-    margin: 7px 0;
-}
+/* header nav {
+    /* float: right; */
+    /* margin: 7px 0; */
+/* } */
 
-header nav ul li {
+/* header nav ul li {
     display: inline;
-}
+} */
 
 header nav ul li a {
     margin: 0 30px;
@@ -81,10 +81,10 @@ body {
     border-style: solid;
 }
 
-button {
+/* button {
     color: #d5b483;
     background-color: #54743d;
-}
+} */
 
 footer {
     background: #163B16;

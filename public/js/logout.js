@@ -1,3 +1,5 @@
+// const res = require("express/lib/response");
+
 async function logout() {
   const response = await fetch('/api/users/logout', {
     method: 'post',
@@ -7,8 +9,15 @@ async function logout() {
   if (response.ok) {
     document.location.replace('/');
   } else {
-    alert(response.statusText);
+    console.log(response.statusText);
+    alert('User not logged in');
   }
 }
 
-document.querySelector('#logout').addEventListener('click', logout);
+function navLogin() {
+  document.location.href = '/login'
+}
+
+
+document.querySelector('.Logout').addEventListener('click', logout);
+document.querySelector('.Login').addEventListener('click', navLogin);
