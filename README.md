@@ -58,6 +58,6 @@
 ## Deployment
   - Here is the screenshot of the app
 
-  ![screenshot](assets/screenshots.png)
+  ![screenshot](assets/pp.jpg)
 
-  - [Link to the application]()
+  - [Link to the application](https://pizzapalaceordersystem.herokuapp.com/)
