@@ -26,7 +26,7 @@ Order.init(
     },
     order_info: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     driver_id: {
     type: DataTypes.INTEGER,
