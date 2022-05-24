@@ -49,11 +49,12 @@
 
 ## Authors
 
-  - [Ansab Sidiki](https://github.com/asidiki)
+  
   - [Chen Wang](https://github.com/wangheer2010)
   - [Aireeal Blackmon](https://github.com/ablackmon1107)
-  - [Cameron Harwood](https://github.com/harwcam)
   - [Mitchell Driesenga](https://github.com/mitchdriesenga)
+  - [Cameron Harwood](https://github.com/harwcam)
+  - [Ansab Sidiki](https://github.com/asidiki)
 
 ## Deployment
   - Here is the screenshot of the app
