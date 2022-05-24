@@ -1,4 +1,4 @@
-const { Food, FoodCategory } = require('../models');
+const { Food } = require('../models');
 
 const router = require('express').Router();
 
