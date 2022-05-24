@@ -2,7 +2,6 @@ const path          = require('path');
 const express       = require('express');
 const session       = require('express-session');
 const exphbs        = require('express-handlebars');
-const flash         = require('express-flash');
 const helpers = require('./utils/helpers')
 const hbs = exphbs.create({ helpers })
 const app = express();
@@ -32,7 +31,6 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(flash());
 app.use(routes);
 
 
